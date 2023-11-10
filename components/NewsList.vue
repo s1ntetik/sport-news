@@ -20,28 +20,27 @@
 
             <div v-if="newsData.length"
                  class="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                <div class="sm:col-span-2 cursor-pointer">
+                <NuxtLink :to="newsData[0]" target="_blank" class="sm:col-span-2">
                     <News
                       :image="newsData[0].urlToImage"
                       image-classes="md:h-[410px]"
                       :textOverImage="newsData[0].title"
-                      @click="goToNewsPage(newsData[0].url)"
                     >
                     </News>
-                </div>
+                </NuxtLink>
 
 
-                <div class="cursor-pointer" v-for="article in newsData.slice(1)" :key="article.publishedAt">
+                <NuxtLink :to="article.url" target="_blank" v-for="article in newsData.slice(1)"
+                          :key="article.publishedAt">
                     <News
                       :image="article.urlToImage"
                       image-classes="sm:h-[266px]"
                       :title="article.title"
                       :publishedAt="article.publishedAt"
                       :description="article.description"
-                      @click="goToNewsPage(article.url)"
                     >
                     </News>
-                </div>
+                </NuxtLink>
             </div>
 
             <div v-if="needPagination" class="flex justify-center mt-[48px]">
@@ -71,8 +70,5 @@ const {
 
 fetchNews()
 
-function goToNewsPage(url) {
-    window.open(`${url}`, '_blank')
-}
 
 </script>

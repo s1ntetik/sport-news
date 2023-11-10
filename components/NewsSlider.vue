@@ -23,7 +23,7 @@
               @init="swiperOnInit"
             >
                 <SwiperSlide v-for="article in newsData" :key="article.publishedAt">
-                    <div class="flex flex-col h-full cursor-pointer" @click="goToNewsPage(article.url)">
+                    <NuxtLink :to="article.url" target="_blank" class="flex flex-col h-full">
                         <News :image="article.urlToImage" image-classes="md:h-[314px] h-[214px]"/>
 
                         <div class="flex-grow flex flex-col justify-between gap-1 text-center mt-4">
@@ -31,7 +31,7 @@
                                 {{ article.title }}</p>
                             <p class="text-sm opacity-[0.5] text-white">{{ article.publishedAt }}</p>
                         </div>
-                    </div>
+                    </NuxtLink>
                 </SwiperSlide>
             </Swiper>
         </div>
@@ -97,7 +97,4 @@ const {
 fetchNews()
 
 
-function goToNewsPage(url) {
-    window.open(`${url}`, '_blank')
-}
 </script>
