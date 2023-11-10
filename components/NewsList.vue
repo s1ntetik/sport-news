@@ -20,22 +20,25 @@
 
             <div v-if="newsData.length"
                  class="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                <div class="sm:col-span-2">
+                <div class="sm:col-span-2 cursor-pointer">
                     <News
                       :image="newsData[0].urlToImage"
                       image-classes="md:h-[410px]"
-                      :textOverImage="newsData[0].title">
+                      :textOverImage="newsData[0].title"
+                      @click="goToNewsPage(newsData[0].url)"
+                    >
                     </News>
                 </div>
 
 
-                <div v-for="article in newsData.slice(1)" :key="article.publishedAt">
+                <div class="cursor-pointer" v-for="article in newsData.slice(1)" :key="article.publishedAt">
                     <News
                       :image="article.urlToImage"
                       image-classes="sm:h-[266px]"
                       :title="article.title"
                       :publishedAt="article.publishedAt"
                       :description="article.description"
+                      @click="goToNewsPage(article.url)"
                     >
                     </News>
                 </div>
@@ -67,5 +70,9 @@ const {
 })
 
 fetchNews()
+
+function goToNewsPage(url) {
+    window.open(`${url}`, '_blank')
+}
 
 </script>
