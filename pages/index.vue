@@ -1,0 +1,7 @@
+<template>
+    <NewsSlider/>
+    <NewsList/>
+</template>
+
+
+

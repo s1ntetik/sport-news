@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: "Helvetica Neue", system-ui, sans-serif;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply px-5 py-2 h-[44px];
+
+        &.--bordered {
+            @apply border border-cyan rounded-3xl
+        }
+    }
+}
