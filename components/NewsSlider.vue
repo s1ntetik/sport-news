@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-blue-light py-12">
-        <div class="container mx-auto px-8">
+    <div class="bg-blue-light py-6 md:py-10">
+        <div class="container mx-auto px-6 md:px-8">
             <div class="flex justify-between items-center pb-12">
                 <h2 class="text-2xl text-white whitespace-nowrap">Featured News</h2>
 

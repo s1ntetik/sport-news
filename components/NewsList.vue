@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto py-14 px-8">
+    <div class="container mx-auto py-8 px-6 md:py-14 md:px-8">
 
         <template v-if="newsError">
             <div class="flex flex-col w-full items-center">
